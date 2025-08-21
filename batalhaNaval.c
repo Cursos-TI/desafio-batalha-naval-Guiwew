@@ -5,6 +5,47 @@
 // Siga os comentários para implementar cada parte do desafio.
 
 int main() {
+
+    int tabuleiro[10][10]; //introduzindo o tabuleiro
+    int aleatorio1 = 7, aleatorio2 = 6;//introduzindo nomeros aleatorios
+    int naviovertical[3]={3,3,3}, naviohorizontal[3]={3,3,3};//introduzindo os navios
+
+    //loop para inicializar o tabuleiro
+    for (int inicializar=0; inicializar<10; inicializar++){
+        for (int inicializar2=0; inicializar2<10; inicializar2++){
+            tabuleiro[inicializar][inicializar2] = 0;}}  //termino do loop para inializar o tabuleiro
+
+    
+    for (int posisaonaviox=0, limite = 8; posisaonaviox < 3; posisaonaviox++){//posicionando o navio vertival 1 no tabuleiro
+
+        if (aleatorio1>=0 && aleatorio1<limite && aleatorio2>=0 && aleatorio2<10){//condição true
+            tabuleiro[aleatorio1][aleatorio2] = naviovertical[posisaonaviox];
+            aleatorio1++;
+            limite++;
+        }else{// começo da condição else]
+            aleatorio1 = 3, aleatorio2 = 5;   //rodar o numero aleatorio denovo
+            posisaonaviox--; 
+        }}// fim do da condição else e fim do for-while
+
+    
+    for (int posisaonavioy=0, limite = 8; posisaonavioy < 3; posisaonavioy++){//posicionando o navio horizontal 1 no tabuleiro
+        if (aleatorio2>=0 && aleatorio2<limite && aleatorio1>=0 && aleatorio1<10){
+            tabuleiro[aleatorio2][aleatorio1] = naviovertical[posisaonavioy];
+            aleatorio1++;
+            limite++;
+        }else{
+            aleatorio1 = 2, aleatorio2 = 3;   //rodar o numero aleatorio denovo
+            posisaonavioy--;
+        }
+    }
+    
+    
+    //loop para exibir o tabuleiro
+    for (int mapax=0; mapax<10; mapax++){
+        for(int mapay=0; mapay<10; mapay++){
+            printf("%d  ", tabuleiro[mapax][mapay]);}
+        printf("\n");}
+
     // Nível Novato - Posicionamento dos Navios
     // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
     // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
