@@ -7,60 +7,92 @@
 int main() {
 
     int tabuleiro[10][10]; //introduzindo o tabuleiro
-    int aleatorio1 = 7, aleatorio2 = 6;//introduzindo nomeros aleatorios
-    int naviovertical[3]={3,3,3}, naviohorizontal[3]={3,3,3};//introduzindo os navios
+    int aleatorio1 = 7, aleatorio2 = 5;//introduzindo nomeros aleatorios
+    int naviovertical1[3]={3,3,3}, naviohorizontal1[3]={3,3,3};//introduzindo os navios
+    int naviodiagonal1[3]={3,3,3}, naviodiagonal2[3]={3,3,3};
 
     //loop para inicializar o tabuleiro
     for (int inicializar=0; inicializar<10; inicializar++){
         for (int inicializar2=0; inicializar2<10; inicializar2++){
             tabuleiro[inicializar][inicializar2] = 0;}}  //termino do loop para inializar o tabuleiro
 
-    
-    for (int posisaonavioy=0; posisaonavioy < 3; posisaonavioy++){//posicionando o navio vertival 1 no tabuleiro
 
-        switch (posisaonavioy)
-        {
-        case 0:
-        if (tabuleiro[aleatorio1][aleatorio2]==0 && tabuleiro[aleatorio1 + 1][aleatorio2]==0 && tabuleiro[aleatorio1 + 2][aleatorio2]==0 ){
-         
-            tabuleiro[aleatorio1][aleatorio2] = naviovertical[posisaonavioy];
+    //posicionando o naviovertical 1
+    for (int posicaonavio = 0; posicaonavio < 3; posicaonavio++){//inicio for-while
+        if (posicaonavio == 0){// inicio if 1 condição
+            if (aleatorio1 >= 0 && aleatorio1 < 8 && aleatorio2 >=0 && aleatorio2 < 8
+                && tabuleiro[aleatorio1][aleatorio2] == 0 && tabuleiro[aleatorio1 + 1][aleatorio2] == 0 && tabuleiro[aleatorio1 + 2][aleatorio2] == 0)
+            {// inicio if 2 condição
+                tabuleiro[aleatorio1][aleatorio2] = naviovertical1[posicaonavio];
+                aleatorio1++;
+            }else{// inicio else 2 condição
+                aleatorio1 = 1, aleatorio2 = 2;
+                posicaonavio--;
+            }// fim else segunda condição
+        }/* fim if 1 condição */else{//inicio else 1 condição
+            tabuleiro[aleatorio1][aleatorio2] = naviovertical1[posicaonavio];
             aleatorio1++;
-        
-        }else{// começo da condição else
-            aleatorio1 = 3, aleatorio2 = 5;   //rodar o numero aleatorio denovo
-            posisaonavioy--;
-            continue;}//fim consição else
-            break;}//fim swith
+        }// fim else 1 condição
+    }// fim for-while
 
-        if (posisaonavioy !=0){
-            tabuleiro[aleatorio1][aleatorio2] = naviovertical[posisaonavioy];
-            aleatorio1++;}
-        
-    }// fim for-while da posisão do navio
 
-    for (int posisaonaviox=0; posisaonaviox < 3; posisaonaviox++){//posicionando o navio horizontal 1 no tabuleiro
-
-        switch (posisaonaviox)
-        {
-        case 0:
-        if (tabuleiro[aleatorio1][aleatorio2]==0 && tabuleiro[aleatorio1][aleatorio2 + 1]==0 && tabuleiro[aleatorio1][aleatorio2 + 2]==0 ){
-         
-            tabuleiro[aleatorio1][aleatorio2] = naviovertical[posisaonaviox];
+    //posicionando o naviohorizontal 1
+    for (int posicaonavio = 0; posicaonavio < 3; posicaonavio++){//inicio for-while
+        if (posicaonavio == 0){// inicio if 1 condição
+            if (aleatorio1 >= 0 && aleatorio1 < 8 && aleatorio2 >=0 && aleatorio2 < 8
+                && tabuleiro[aleatorio1][aleatorio2] == 0 && tabuleiro[aleatorio1][aleatorio2 + 1] == 0 && tabuleiro[aleatorio1][aleatorio2 + 2] == 0)
+            {// inicio if 2 condição
+                tabuleiro[aleatorio1][aleatorio2] = naviohorizontal1[posicaonavio];
+                aleatorio2++;
+            }else{// inicio else 2 condição
+                aleatorio1 = 1, aleatorio2 = 7;
+                posicaonavio--;
+            }// fim else segunda condição
+        }/* fim if 1 condição */else{//inicio else 1 condição
+            tabuleiro[aleatorio1][aleatorio2] = naviohorizontal1[posicaonavio];
             aleatorio2++;
-        
-        }else{// começo da condição else
-            aleatorio1 = 5, aleatorio2 = 5;   //rodar o numero aleatorio denovo
-            posisaonaviox--;
-            continue;}//fim consição else
-            break;}//fim swith
+        }// fim else 1 condição
+    }// fim for-while
 
-        if (posisaonaviox !=0){
-            tabuleiro[aleatorio1][aleatorio2] = naviovertical[posisaonaviox];
-            aleatorio2++;}
-        
-    }// fim for-while da posisão do navio
+
+    //posicionando o naviodiagonal 1
+    for (int posicaonavio = 0; posicaonavio < 3; posicaonavio++){//inicio for-while
+        if (posicaonavio == 0){// inicio if 1 condição
+            if (aleatorio1 >= 0 && aleatorio1 < 8 && aleatorio2 >=0 && aleatorio2 < 8
+                && tabuleiro[aleatorio1][aleatorio2] == 0 && tabuleiro[aleatorio1 + 1][aleatorio2 + 1] == 0 && tabuleiro[aleatorio1 + 2][aleatorio2 + 2] == 0)
+            {// inicio if 2 condição
+                tabuleiro[aleatorio1][aleatorio2] = naviovertical1[posicaonavio];
+                aleatorio1++, aleatorio2++;
+            }else{// inicio else 2 condição
+                aleatorio1 = 7, aleatorio2 = 7;
+                posicaonavio--;
+            }// fim else segunda condição
+        }/* fim if 1 condição */else{//inicio else 1 condição
+            tabuleiro[aleatorio1][aleatorio2] = naviovertical1[posicaonavio];
+            aleatorio1++, aleatorio2++;
+        }// fim else 1 condição
+    }// fim for-while
     
-    
+
+    //posicionando o navio diagonal 2
+    for (int posicaonavio = 0; posicaonavio < 3; posicaonavio++){//inicio for-while
+        if (posicaonavio == 0){// inicio if 1 condição
+            if (aleatorio1 >= 2 && aleatorio1 < 10 && aleatorio2 >=0 && aleatorio2 < 8
+                && tabuleiro[aleatorio1][aleatorio2] == 0 && tabuleiro[aleatorio1 - 1][aleatorio2 + 1] == 0 && tabuleiro[aleatorio1 - 2][aleatorio2 + 2] == 0)
+            {// inicio if 2 condição
+                tabuleiro[aleatorio1][aleatorio2] = naviovertical1[posicaonavio];
+                aleatorio1--, aleatorio2++;
+            }else{// inicio else 2 condição
+                aleatorio1 = 9, aleatorio2 = 0;
+                posicaonavio--;
+            }// fim else segunda condição
+        }/* fim if 1 condição */else{//inicio else 1 condição
+            tabuleiro[aleatorio1][aleatorio2] = naviovertical1[posicaonavio];
+            aleatorio1--, aleatorio2++;
+        }// fim else 1 condição
+    }// fim for-while
+
+
     //loop para exibir o tabuleiro
     for (int mapax=0; mapax<10; mapax++){
         for(int mapay=0; mapay<10; mapay++){
